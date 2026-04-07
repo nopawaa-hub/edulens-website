@@ -746,6 +746,7 @@ async function initApp() {
     await loadStudentsFromFirebase();
     await loadMarkingQueueFromFirebase();
     await loadUploadHistoryFromFirebase();
+    await testFirebaseSave();
   }
 
   // Render initial state
@@ -774,6 +775,6 @@ async function testFirebaseSave() {
   console.log("Firebase test saved");
 }
 
-testFirebaseSave();
+if (db) {   testFirebaseSave(); }
 
 document.addEventListener('DOMContentLoaded', initApp);

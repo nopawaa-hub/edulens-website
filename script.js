@@ -7,12 +7,12 @@
 // Replace these values with your actual Firebase project config
 // (Firebase Console → Project Settings → Your apps → SDK setup)
 const FIREBASE_CONFIG = {
-  apiKey:            "YOUR_API_KEY",
-  authDomain:        "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId:         "YOUR_PROJECT_ID",
-  storageBucket:     "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId:             "YOUR_APP_ID"
+  apiKey: "AIzaSyBg6jYAQdcgyZMwdJMzwWcgNfI-TzHJL-M",
+  authDomain: "student-assessment-dashb-d2865.firebaseapp.com",
+  projectId: "student-assessment-dashb-d2865",
+  storageBucket: "student-assessment-dashb-d2865.firebasestorage.app",
+  messagingSenderId: "992028286078",
+  appId: "1:992028286078:web:9c4e4dd16ce19aba954c2f"
 };
 
 // ── 2. GOOGLE SHEETS APPS SCRIPT WEBHOOK URL ────────────────
@@ -22,7 +22,7 @@ const SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxRuHHUmri1I
 
 // ── 3. GOOGLE SHEET ID ───────────────────────────────────────
 // Found in your sheet URL: docs.google.com/spreadsheets/d/SHEET_ID/edit
-const SHEET_ID = "YOUR_GOOGLE_SHEET_ID";
+const SHEET_ID = "1hNFPlyc1FoNZ-gvXHoI2stXx5uRH9nb_xk9uQpCQsjw";
 
 // ── 4. FIREBASE SDK INIT ─────────────────────────────────────
 let db = null;
@@ -196,10 +196,10 @@ async function syncGoogleSheets() {
     let newCount = 0;
     for (const row of sheetResponses) {
       const matched = studentData.find(s =>
-        s.name.toLowerCase().includes((row.name || '').toLowerCase())
+        s.name.toLowerCase() === (row.name || '').toLowerCase()
       );
       if (matched) {
-        if (row.readingScore != null) matched.reading = parseInt(row.readingScore);
+        if (row.score != null) matched.reading = parseInt(row.score);
         recalcStudent(matched);
         await saveStudentToFirebase(matched);
         newCount++;
@@ -762,5 +762,18 @@ async function initApp() {
     setTimeout(() => showToast('⚠️ Set your Firebase config in script.js to enable cloud sync', 'warn'), 1200);
   }
 }
+
+async function testFirebaseSave() {
+  await db.collection("students").doc("test1").set({
+    name: "Test Student",
+    reading: 12,
+    grammar: 10,
+    total: 22,
+    timestamp: new Date()
+  });
+  console.log("Firebase test saved");
+}
+
+testFirebaseSave();
 
 document.addEventListener('DOMContentLoaded', initApp);

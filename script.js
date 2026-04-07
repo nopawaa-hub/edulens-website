@@ -18,7 +18,7 @@ const FIREBASE_CONFIG = {
 // ── 2. GOOGLE SHEETS APPS SCRIPT WEBHOOK URL ────────────────
 // Deploy your Apps Script as a Web App and paste the URL here
 // Guide: https://developers.google.com/apps-script/guides/web
-const SHEETS_WEBHOOK_URL = "YOUR_APPS_SCRIPT_WEB_APP_URL";
+const SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxRuHHUmri1IX2lYGst-O2z6-AOH1vT_xuygpLduI-AkDV-U4HpA5cvgexNwqRJcJxfjw/exec";
 
 // ── 3. GOOGLE SHEET ID ───────────────────────────────────────
 // Found in your sheet URL: docs.google.com/spreadsheets/d/SHEET_ID/edit

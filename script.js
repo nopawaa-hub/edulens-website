@@ -175,7 +175,7 @@ async function syncGoogleSheets() {
   if (dotEl) dotEl.style.background = 'var(--amber)';
 
   // Check if webhook is configured
-  if (SHEETS_WEBHOOK_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL') {
+  if (SHEETS_WEBHOOK_URL === 'https://script.google.com/macros/s/AKfycbxRuHHUmri1IX2lYGst-O2z6-AOH1vT_xuygpLduI-AkDV-U4HpA5cvgexNwqRJcJxfjw/exec') {
     showToast('⚠️ Paste your Apps Script URL into SHEETS_WEBHOOK_URL in script.js', 'warn');
     if (btn) { btn.textContent = 'Sync Now'; btn.disabled = false; }
     if (dotEl) dotEl.style.background = 'var(--amber)';
@@ -227,7 +227,7 @@ function renderSheetStatus() {
   const statusEl = document.getElementById('sheetSyncStatus');
   const responsesEl = document.getElementById('sheetResponseCount');
 
-  const configured = SHEETS_WEBHOOK_URL !== 'YOUR_APPS_SCRIPT_WEB_APP_URL';
+  const configured = SHEETS_WEBHOOK_URL !== 'https://script.google.com/macros/s/AKfycbxRuHHUmri1IX2lYGst-O2z6-AOH1vT_xuygpLduI-AkDV-U4HpA5cvgexNwqRJcJxfjw/exec';
 
   if (dotEl) dotEl.style.background = configured && syncStatus === 'Connected' ? 'var(--green)' : 'var(--amber)';
   if (statusEl) {

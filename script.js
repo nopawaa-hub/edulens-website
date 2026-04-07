@@ -6,15 +6,15 @@
 // ── 1. FIREBASE CONFIG ──────────────────────────────────────
 // Replace these values with your actual Firebase project config
 // (Firebase Console → Project Settings → Your apps → SDK setup)
-const FIREBASE_CONFIG = {
+const firebaseConfig = {
   apiKey: "AIzaSyBg6jYAQdcgyZMwdJMzwWcgNfI-TzHJL-M",
   authDomain: "student-assessment-dashb-d2865.firebaseapp.com",
   projectId: "student-assessment-dashb-d2865",
   storageBucket: "student-assessment-dashb-d2865.firebasestorage.app",
   messagingSenderId: "992028286078",
-  appId: "1:992028286078:web:9c4e4dd16ce19aba954c2f"
+  appId: "1:992028286078:web:9c4e4dd16ce19aba954c2f",
+  measurementId: "G-FZ1XM8KM0X"
 };
-
 // ── 2. GOOGLE SHEETS APPS SCRIPT WEBHOOK URL ────────────────
 // Deploy your Apps Script as a Web App and paste the URL here
 // Guide: https://developers.google.com/apps-script/guides/web

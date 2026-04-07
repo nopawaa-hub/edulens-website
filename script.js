@@ -759,7 +759,7 @@ async function initApp() {
   setupUploadZone();
 
   // Show config warning if placeholders still set
-  if (FIREBASE_CONFIG.apiKey === 'YOUR_API_KEY') {
+  if (FIREBASE_CONFIG.apiKey === 'AIzaSyBg6jYAQdcgyZMwdJMzwWcgNfI-TzHJL-M') {
     setTimeout(() => showToast('⚠️ Set your Firebase config in script.js to enable cloud sync', 'warn'), 1200);
   }
 }
